@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private WebView webView;
     private SwipeRefreshLayout swipeContainer;
     private Button errorRefreshButton;
+    private MovableFloatingActionButton fabButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         webView = (WebView) findViewById(R.id.main_webview);
         swipeContainer = (SwipeRefreshLayout) findViewById(R.id.swipe_container);
         errorRefreshButton = (Button) findViewById(R.id.webview_error_refresh);
+        fabButton = (MovableFloatingActionButton) findViewById(R.id.fab);
 
         initView();
     }
@@ -45,8 +47,6 @@ public class MainActivity extends AppCompatActivity {
                 view.loadUrl(url);
                 return false;
             }
-            @Override
-            public void onPageStarted(WebView view, String url, Bitmap favicon) {}
             @Override
             public void onPageFinished(WebView view, String url) {
                 swipeContainer.setRefreshing(false);

@@ -1,59 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/swipe_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
     tools:context=".MainActivity">
 
-    <FrameLayout
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <WebView
-            android:id="@+id/main_webview"
+        android:layout_height="match_parent"
+        android:gravity="center">
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent">
+            <WebView
+                android:id="@+id/main_webview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
-        <LinearLayout
-            android:id="@+id/webview_error_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:background="@color/white"
-            android:visibility="gone"
-            android:orientation="vertical">
-            <TextView
+            <LinearLayout
+                android:id="@+id/webview_error_view"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/webview_error_text"
-                android:textAlignment="center"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:textSize="@dimen/header_text_size"/>
-            <TextView
-                android:id="@+id/webview_error_detail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="@dimen/error_text_vertical_margin"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="@dimen/detail_text_size"/>
-            <Button
-                android:id="@+id/webview_error_refresh"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/button_height"
-                android:paddingHorizontal="@dimen/button_horizontal_padding"
+                android:layout_height="match_parent"
                 android:gravity="center"
-                android:background="@color/gray"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="@dimen/button_text_size"
-                android:text="@string/button_text_refresh"/>
-        </LinearLayout>
+                android:background="@color/white"
+                android:visibility="gone"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/webview_error_text"
+                    android:textAlignment="center"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/header_text_size"/>
+                <TextView
+                    android:id="@+id/webview_error_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/error_text_vertical_margin"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/detail_text_size"/>
+                <Button
+                    android:id="@+id/webview_error_refresh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/button_height"
+                    android:paddingHorizontal="@dimen/button_horizontal_padding"
+                    android:gravity="center"
+                    android:background="@color/gray"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/button_text_size"
+                    android:text="@string/button_text_refresh"/>
+            </LinearLayout>
+        </FrameLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-    </FrameLayout>
+    <com.totoit.test.MovableFloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:backgroundTint="@color/transparent"
+        android:src="@drawable/ic_baseline_add_24"
+        app:borderWidth="3dp"
+        app:backgroundTint="@color/main_orange"
+        app:elevation="0dp"
+        app:pressedTranslationZ="0dp"/>
 
-</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</FrameLayout>
