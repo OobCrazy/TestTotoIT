@@ -7,6 +7,7 @@
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2985" />
         <entry key="app/src/main/res/drawable/ic_baseline_add_circle_outline_24.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.2985" />
+        <entry key="app/src/main/res/layout/activity_load_api.xml" value="0.21822916666666667" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.10511651469098278" />
         <entry key="app/src/main/res/xml/network_security_config.xml" value="0.14175724637681159" />
       </map>

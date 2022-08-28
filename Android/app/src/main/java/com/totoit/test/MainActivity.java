@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.annotation.SuppressLint;
-import android.graphics.Bitmap;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebChromeClient;
@@ -74,6 +74,11 @@ public class MainActivity extends AppCompatActivity {
             swipeContainer.setRefreshing(true);
             webView.reload();
             errorView.setVisibility(View.GONE);
+        });
+
+        fabButton.setOnClickListener((event) -> {
+            Intent loadApiIntent = new Intent(MainActivity.this, LoadApiPage.class);
+            MainActivity.this.startActivity(loadApiIntent);
         });
     }
 }
