@@ -1,5 +1,11 @@
 <resources>
     <string name="app_name">TestTotoIT</string>
     <string name="webview_error_text">Error, cannot load page.</string>
+    <string name="api_error_text">Error, cannot load api data.</string>
     <string name="button_text_refresh">Refresh</string>
+    <string name="double_back_to_exit">Press back again to exit.</string>
+    <string name="error_message_text">ErrorMessage:</string>
+    <string name="error_type_text">ErrorType:</string>
+    <string name="request_id_text">RequestId:</string>
+    <string name="time_stamp_text">TimeStamp:</string>
 </resources>

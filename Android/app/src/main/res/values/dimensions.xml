@@ -7,4 +7,6 @@
     <dimen name="button_horizontal_padding">20dp</dimen>
     <dimen name="error_text_vertical_margin">10dp</dimen>
     <dimen name="fab_margin">10dp</dimen>
+    <dimen name="api_text_margin">10dp</dimen>
+    <dimen name="api_row_vertical_margin">5dp</dimen>
 </resources>

@@ -6,6 +6,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
@@ -14,6 +15,7 @@ import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private LinearLayout errorView;
@@ -22,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
     private SwipeRefreshLayout swipeContainer;
     private Button errorRefreshButton;
     private MovableFloatingActionButton fabButton;
+
+    private boolean doubleBackToExitPressedOnce = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +40,25 @@ public class MainActivity extends AppCompatActivity {
         fabButton = (MovableFloatingActionButton) findViewById(R.id.fab);
 
         initView();
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            finish();
+            return;
+        }
+
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, getString(R.string.double_back_to_exit), Toast.LENGTH_SHORT).show();
+
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce = false;
+            }
+        }, 2000);
     }
 
     @SuppressLint("SetJavaScriptEnabled")
