@@ -1,5 +1,6 @@
 package com.totoit.test;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -9,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
@@ -94,11 +96,17 @@ public class LoadApiPage extends AppCompatActivity {
                         errorType.setText(apiData.ErrorType);
                         requestId.setText(apiData.RequestId);
                         timeStamp.setText(apiData.TimeStamp);
+                        String message = "ErrorMessage: "+apiData.ErrorMessage+"\n\n"
+                                +"ErrorType: "+apiData.ErrorType+"\n\n"
+                                +"RequestId: "+apiData.RequestId+"\n\n"
+                                +"TimeStamp: "+apiData.TimeStamp;
+                        showAlertDialog(getString(R.string.api_alert_success_title), message);
                     } else {
                         errorMessage.setText(getString(R.string.api_error_text));
                         errorType.setText("");
                         requestId.setText("");
                         timeStamp.setText("");
+                        showAlertDialog(getString(R.string.api_alert_fail_title), getString(R.string.api_error_text));
                     }
                     dataView.setVisibility(View.VISIBLE);
                     loadingView.setVisibility(View.GONE);
@@ -112,6 +120,7 @@ public class LoadApiPage extends AppCompatActivity {
                     errorType.setText("");
                     requestId.setText("");
                     timeStamp.setText("");
+                    showAlertDialog(getString(R.string.api_alert_fail_title), t.getMessage());
                     dataView.setVisibility(View.VISIBLE);
                     loadingView.setVisibility(View.GONE);
                     swipeContainer.setRefreshing(false);
@@ -123,9 +132,25 @@ public class LoadApiPage extends AppCompatActivity {
             errorType.setText("");
             requestId.setText("");
             timeStamp.setText("");
+            showAlertDialog(getString(R.string.api_alert_fail_title), e.getMessage());
             dataView.setVisibility(View.VISIBLE);
             loadingView.setVisibility(View.GONE);
             swipeContainer.setRefreshing(false);
         }
+    }
+
+    private void showAlertDialog(String title, String message) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this)
+                .setMessage(message)
+                .setTitle(title)
+                .setCancelable(false)
+                .setPositiveButton(getString(R.string.api_alert_ok_button), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        onBackPressed();
+                    }
+                });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 }
