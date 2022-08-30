@@ -9,6 +9,7 @@
     <string name="request_id_text">RequestId:</string>
     <string name="time_stamp_text">TimeStamp:</string>
     <string name="api_alert_ok_button">Return to Home</string>
+    <string name="api_alert_close_button">Close</string>
     <string name="api_alert_success_title">Load API Complete</string>
     <string name="api_alert_fail_title">Load API Error</string>
 </resources>

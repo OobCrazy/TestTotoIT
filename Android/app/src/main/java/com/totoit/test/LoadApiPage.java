@@ -149,6 +149,10 @@ public class LoadApiPage extends AppCompatActivity {
                     public void onClick(DialogInterface dialogInterface, int i) {
                         onBackPressed();
                     }
+                })
+                .setNegativeButton(getString(R.string.api_alert_close_button), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {}
                 });
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
