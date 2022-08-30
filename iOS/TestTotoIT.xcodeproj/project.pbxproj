@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		917BC26F28BE50FA00D6585F /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917BC26E28BE50FA00D6585F /* WebView.swift */; };
+		917BC27128BE565B00D6585F /* WebViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917BC27028BE565B00D6585F /* WebViewModel.swift */; };
+		917BC27328BE575F00D6585F /* WebViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917BC27228BE575F00D6585F /* WebViewCoordinator.swift */; };
 		91B3D51C28BD4123002FECDA /* TestTotoITApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B3D51B28BD4123002FECDA /* TestTotoITApp.swift */; };
 		91B3D51E28BD4123002FECDA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B3D51D28BD4123002FECDA /* ContentView.swift */; };
 		91B3D52028BD4128002FECDA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91B3D51F28BD4128002FECDA /* Assets.xcassets */; };
@@ -34,6 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		917BC26E28BE50FA00D6585F /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		917BC27028BE565B00D6585F /* WebViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewModel.swift; sourceTree = "<group>"; };
+		917BC27228BE575F00D6585F /* WebViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewCoordinator.swift; sourceTree = "<group>"; };
 		91B3D51828BD4123002FECDA /* TestTotoIT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestTotoIT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91B3D51B28BD4123002FECDA /* TestTotoITApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTotoITApp.swift; sourceTree = "<group>"; };
 		91B3D51D28BD4123002FECDA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -98,6 +104,9 @@
 				91B3D51D28BD4123002FECDA /* ContentView.swift */,
 				91B3D51F28BD4128002FECDA /* Assets.xcassets */,
 				91B3D52128BD4128002FECDA /* Preview Content */,
+				917BC26E28BE50FA00D6585F /* WebView.swift */,
+				917BC27028BE565B00D6585F /* WebViewModel.swift */,
+				917BC27228BE575F00D6585F /* WebViewCoordinator.swift */,
 			);
 			path = TestTotoIT;
 			sourceTree = "<group>";
@@ -257,8 +266,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				917BC27328BE575F00D6585F /* WebViewCoordinator.swift in Sources */,
+				917BC26F28BE50FA00D6585F /* WebView.swift in Sources */,
 				91B3D51E28BD4123002FECDA /* ContentView.swift in Sources */,
 				91B3D51C28BD4123002FECDA /* TestTotoITApp.swift in Sources */,
+				917BC27128BE565B00D6585F /* WebViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
