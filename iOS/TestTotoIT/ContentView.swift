@@ -8,14 +8,44 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject var webViewModel = WebViewModel(url: "https://www.winmasters.gr")
+    @State private var dragAmount: CGPoint?
+    let mainColor = Color(red: 219/255, green: 6/255, blue: 13/255)
         
-        var body: some View {
+    var body: some View {
+        ZStack {
             WebView(webViewModel: webViewModel)
             if webViewModel.isLoading {
                 ProgressView()
                     .frame(height: 30)
             }
+            
+            GeometryReader { gp in // just to center initial position
+                ZStack {
+                    Button(action: self.performAction) {
+                        ZStack {
+                            Image(systemName: "plus")
+                                .resizable()
+                                .padding(10)
+                                .background(mainColor)
+                                .clipShape(Circle())
+                                .foregroundColor(.white)
+                                .frame(width: 50, height: 50, alignment: .center)
+                        }
+                    }
+                    .animation(.none, value: dragAmount)
+                    .position(self.dragAmount ?? CGPoint(x: (gp.size.width - 35), y: (gp.size.height - 35)))
+                    .highPriorityGesture(  // << to do no action on drag !!
+                        DragGesture()
+                            .onChanged { self.dragAmount = $0.location})
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity) // full space
+            }
         }
+    }
+    
+    func performAction() {
+        print("button pressed")
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
