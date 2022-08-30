@@ -12,17 +12,17 @@ struct ContentView: View {
     let mainColor = Color(red: 219/255, green: 6/255, blue: 13/255)
         
     var body: some View {
-        ZStack {
-            WebView(webViewModel: webViewModel)
-            if webViewModel.isLoading {
-                ProgressView()
-                    .frame(height: 30)
-            }
-            
-            GeometryReader { gp in // just to center initial position
-                ZStack {
-                    Button(action: self.performAction) {
-                        ZStack {
+        NavigationView {
+            ZStack {
+                WebView(webViewModel: webViewModel)
+                if webViewModel.isLoading {
+                    ProgressView()
+                        .frame(height: 30)
+                }
+                
+                GeometryReader { gp in // just to center initial position
+                    ZStack {
+                        NavigationLink(destination: LoadApiView(apiData: AppDataModel(ErrorMessage: "", ErrorType: "", RequestId: "", TimeStamp: ""))) {
                             Image(systemName: "plus")
                                 .resizable()
                                 .padding(10)
@@ -31,20 +31,18 @@ struct ContentView: View {
                                 .foregroundColor(.white)
                                 .frame(width: 50, height: 50, alignment: .center)
                         }
+                        .animation(.none, value: dragAmount)
+                        .position(self.dragAmount ?? CGPoint(x: (gp.size.width - 35), y: (gp.size.height / 2)))
+                        .highPriorityGesture(  // << to do no action on drag !!
+                            DragGesture()
+                                .onChanged { self.dragAmount = $0.location})
                     }
-                    .animation(.none, value: dragAmount)
-                    .position(self.dragAmount ?? CGPoint(x: (gp.size.width - 35), y: (gp.size.height - 35)))
-                    .highPriorityGesture(  // << to do no action on drag !!
-                        DragGesture()
-                            .onChanged { self.dragAmount = $0.location})
+                    .frame(maxWidth: .infinity, maxHeight: .infinity) // full space
                 }
-                .frame(maxWidth: .infinity, maxHeight: .infinity) // full space
             }
+            .navigationBarHidden(true)
+            .navigationBarTitle(Text("Home"))
         }
-    }
-    
-    func performAction() {
-        print("button pressed")
     }
 }
 
